@@ -1,0 +1,8 @@
+
+
+
+data$doy <- as.numeric(strftime(data$date, format = "%j")) ######dia del año
+
+data$day_night <- case_when(data$hour >= 0 & data$hour < data$sunrise_dec ~ "night",
+                            data$hour >= data$sunrise_dec & data$hour < data$sunset_dec ~ "daylight",
+                            data$hour >= data$sunset_dec & data$hour < 24 ~ "night")
