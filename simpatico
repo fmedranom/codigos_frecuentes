@@ -1,4 +1,0 @@
-
-
-
-beepr::beep(sound = 8) ### sonido que avisa cuando terminamos de correr un codigo
