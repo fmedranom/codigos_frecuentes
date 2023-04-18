@@ -32,10 +32,27 @@ library(ggraph) # needs to be loaded
 plot(correlation(mtcars, partial = TRUE)) +
   scale_edge_color_continuous(low = "#000004FF", high = "#FCFDBFFF")
 
-
-### qq plot
+###Visualization
+# qq plot
 library(performance)
 library(see)
 model <- lm(wt ~ mpg, data = mtcars)
 check <- check_normality(model)
 plot(check, type = "qq")
+
+#half violin
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_violindot(fill_dots = "black") +
+  theme_modern() +
+  scale_fill_material_d()
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
