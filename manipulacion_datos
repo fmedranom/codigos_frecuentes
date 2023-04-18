@@ -6,17 +6,18 @@ data$day_night <- case_when(data$hour >= 0 & data$hour < data$sunrise_dec ~ "nig
 
 
 
+### Data wizard
 library(datawizard)
-
 head(data_relocate(iris, select = "Species", before = "Sepal.Length")) ###relocaliza columnas
 head(data_rename(iris, c("Sepal.Length", "Sepal.Width"), c("length", "width"))) ### cambiar nombres columnas
 data_merge(x, y, join = "anti", by = "c") ###une las que no coinciden
 remove_empty_columns(tmp) ### remueve todas las columnas vacías
 remove_empty_rows(tmp) ### remueve las filas vacías
 remove_empty(tmp) ### remueve las filas y columnas vacías
-
-
-
+winsorize(anscombe) ###eliminar outliers
+data_rotate(x) ### rotar columnas con filas
+describe_distribution(iris) ### dice varias métricas de cada variable del dataframe
+## tambien se puede trabajar con pipes, usando lo siguiente: |>
 
 
 
