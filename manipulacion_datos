@@ -4,6 +4,7 @@ data$day_night <- case_when(data$hour >= 0 & data$hour < data$sunrise_dec ~ "nig
                             data$hour >= data$sunrise_dec & data$hour < data$sunset_dec ~ "daylight",
                             data$hour >= data$sunset_dec & data$hour < 24 ~ "night")
 
+beepr::beep(sound = 8) ### sonido que avisa cuando terminamos de correr un codigo
 
 
 ### Data wizard
@@ -18,6 +19,32 @@ winsorize(anscombe) ###eliminar outliers
 data_rotate(x) ### rotar columnas con filas
 describe_distribution(iris) ### dice varias métricas de cada variable del dataframe
 ## tambien se puede trabajar con pipes, usando lo siguiente: |>
+
+### Correlation
+library(correlation)
+library(see)
+
+results <- correlation(iris)
+results %>%
+  summary(redundant = TRUE) %>%
+  plot()
+  
+iris %>%
+  select(Species, Sepal.Length, Sepal.Width, Petal.Width) %>%
+  group_by(Species) %>%
+  correlation()
+  
+###Gaussian Graphic models (correlaciones, útil para ver como en una red visual cuáles variables están más relacionadas con las otras)
+library(see) # for plotting
+library(ggraph) # needs to be loaded
+
+plot(correlation(mtcars, partial = TRUE)) +
+  scale_edge_color_continuous(low = "#000004FF", high = "#FCFDBFFF")
+
+
+
+
+
 
 
 
