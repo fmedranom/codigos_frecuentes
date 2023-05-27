@@ -5,3 +5,7 @@ data$day_night <- case_when(data$hour >= 0 & data$hour < data$sunrise_dec ~ "nig
                             data$hour >= data$sunset_dec & data$hour < 24 ~ "night")
 
 beepr::beep(sound = 8) ### sonido que avisa cuando terminamos de correr un codigo
+
+sum_trips$Breed_stage2 = factor(sum_trips$Breed_stage2, levels=c("Incubation", "Chick-rearing")) ## cambiar orden de aparición, útil para ggplot
+
+
