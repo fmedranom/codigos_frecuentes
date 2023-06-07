@@ -8,4 +8,5 @@ beepr::beep(sound = 8) ### sonido que avisa cuando terminamos de correr un codig
 
 sum_trips$Breed_stage2 = factor(sum_trips$Breed_stage2, levels=c("Incubation", "Chick-rearing")) ## cambiar orden de aparición, útil para ggplot
 
+Sys.setlocale("LC_ALL", "English") ## para cambiar el eje X sobre todo para cuando es un date, y que los meses salgan en anglés
 
